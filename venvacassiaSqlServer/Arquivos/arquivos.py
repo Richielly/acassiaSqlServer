@@ -53,7 +53,7 @@ def ler_arquivos_Hodometro_horimetro(diretorio):
         data = line.split('|')
         with open("VeiculoControleSimAm.txt", mode="a", encoding="ansi") as arquivo:
             arquivo.writelines(
-                f"""{codEntidade}|{data[1]}|{next(CdControle)}|2|{util.ultimo_dia_mes(int(data[4]),int(data[3]))}|{data[8].replace('.', ',')}|{data[9]}|{data[2]}|2|{data[6].replace('.',',')}|{data[7].replace('.',',')}||\n""")
+                f"""{codEntidade}|{data[1]}|{next(CdControle)}|2|{util.ultimo_dia_mes(int(data[4]),int(data[3]))}|{data[8].replace('0.000', '0')}|{data[9]}|{data[2]}|2|{data[6].replace('.',',')}|{data[7].replace('.',',')}|0||\n""")
 
     return list_conteudo
 
@@ -68,4 +68,4 @@ def criar_arquivo_ansi(nome_arquivo, lista_dados):
 
 # resp = extrair_tabelas(r'C:\Users\Equiplano\PycharmProjects\acassiaSqlServer\layoutTCE_2023.pdf', 682)
 # lista = ler_arquivos_consumo_combustivel(r'C:\Users\Equiplano\Downloads\SimAm_Samae_Castelo_Branco')
-# lista_controle_simAm = ler_arquivos_Hodometro_horimetro(r'C:\Users\Equiplano\Downloads\SimAm_Samae_Castelo_Branco')
+lista_controle_simAm = ler_arquivos_Hodometro_horimetro(r'C:\Users\Equiplano\Downloads\SimAm_Samae_Castelo_Branco')
